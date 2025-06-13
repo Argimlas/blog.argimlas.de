@@ -34,20 +34,20 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-bold'>{config.author}</h1>
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
-          <Label title='China'>
+          <Label title='Deutschland'>
             <Icon name='location' class='size-5' slot='icon' />
           </Label>
           <Label
             title='Source code'
             as='a'
-            href='https://github.com/cworld1/astro-theme-pure'
+            href='https://github.com/argimlas/blog.argimlas.de'
             target='_blank'
           >
             <Icon name='github' class='size-5' slot='icon' />
           </Label>
         </div>
       </div>
-
+<!--
       {/* Get template */}
       <a
         href='https://github.com/cworld1/astro-theme-pure'
@@ -61,18 +61,21 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           <span class='size-2 rounded-full bg-green-400'></span>
         </span>
         <p class='font-medium text-muted-foreground'>Get Template</p>
-      </a>
+      </a>-->
     </section>
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='About'>
-        <p class='text-muted-foreground'>Developer / Designer</p>
+        <p class='text-muted-foreground'>Hey, ich bin Jakob.</p>
+        <p class='text-muted-foreground'>Der (bis jetzt) noch sehr kleine Blog auf dieser Website beschäftigt sich mit dem selbstständigen Bauen von Möbeln – speziell für Studierende.</p>
         <p class='text-muted-foreground'>
-          Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione
-          indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel,
-          at eum oratio possit voluptatum.
+          Erstellt habe ich diese Website im Rahmen des ASQs „Möglichkeiten der kollaborativen Texterstellung in digitalen Zeiten. Wissensdatenbanken, Blog-Erstellung und E-Book-Publishing“ an der Universität Ulm.
         </p>
-        <Button title='More about me' class='w-fit self-end' href='/about' style='ahead' />
+        <p class='text-muted-foreground'>
+          Dabei wollte ich das Framework <a href="https://astro.build/" class="text-blue-600 hover:underline font-medium">Astro</a> besser kennen lernen.
+          Für den Blog verwende ich das Theme <a href="https://astro-pure.js.org/" class="text-blue-600 hover:underline font-medium">Astro Pure</a>.
+          Gehostet wird die Website von manitu.
+        </p>
       </Section>
       {
         allPostsByDate.length > 0 && (
@@ -117,7 +120,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         imageClass='h-12 w-auto md:-start-16'
       />
     </Section> */
-      }
+    /*  }
       <Section title='Education'>
         <Card
           as='a'
@@ -127,13 +130,13 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         >
           {
-            /* <ul class='ms-4 list-disc text-muted-foreground'>
+          <ul class='ms-4 list-disc text-muted-foreground'>
           <li>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
             molestiae laboriosam pariatur!
           </li>
           <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
-        </ul> */
+        </ul> 
           }
         </Card>
       </Section>
@@ -183,6 +186,6 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         <SkillLayout title='Backend' skills={backend} />
       </Section>
     </div>
-    <Quote class='mt-12' />
+    <Quote class='mt-12' />*/
   </main>
 </PageLayout>
