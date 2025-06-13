@@ -59,7 +59,7 @@ export const theme: ThemeUserConfig = {
   footer: {
     links: [
       // Registration link
-      {
+      /*{
         title: 'Moe ICP APTX4869',
         link: 'https://icp.gov.moe/?keyword=APTX4869',
         style: 'text-sm' // Uno/TW CSS class
@@ -68,7 +68,7 @@ export const theme: ThemeUserConfig = {
         title: 'Travelling',
         link: 'https://www.travellings.cn/go.html',
         style: 'text-sm'
-      },
+      },*/
       // Privacy Policy link
       {
         title: 'Site Policy',
@@ -79,16 +79,16 @@ export const theme: ThemeUserConfig = {
     /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/cworld1/astro-theme-pure' }
+    social: { github: 'https://github.com/argimlas' }
   },
 
   content: {
     externalLinksContent: ' ↗',
     /** Blog page size for pagination (optional) */
     blogPageSize: 8,
-    externalLinkArrow: true, // show external link arrow
+    externalLinkArrow: false, // show external link arrow
     // Currently support weibo, x, bluesky
-    share: ['weibo', 'x', 'bluesky']
+    share: []
   }
 }
 
@@ -138,7 +138,7 @@ export const integ: IntegrationUserConfig = {
   },
   // Comment system
   waline: {
-    enable: true,
+    enable: false,
     // Server service link
     server: 'https://astro-theme-pure-waline.arthals.ink/',
     // Refer https://waline.js.org/en/guide/features/emoji.html
