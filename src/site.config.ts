@@ -3,7 +3,7 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 export const theme: ThemeUserConfig = {
   // === Basic configuration ===
   /** Title for your website. Will be used in metadata and as browser tab title. */
-  title: 'DIY - Möbelbauen mit Holz',
+  title: 'DIY - Möbelbauen aus Holz',
   /** Will be used in index page & copyright declaration */
   author: 'Jakob',
   /** Description metadata for your website. Can be used in page metadata. */
@@ -79,7 +79,7 @@ export const theme: ThemeUserConfig = {
     /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/argimlas' }
+    social: { github: 'https://github.com/argimlas/blog.argimlas.de' }
   },
 
   content: {
