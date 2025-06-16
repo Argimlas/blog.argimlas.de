@@ -56,7 +56,7 @@ Auch Stichsägen gibt es mit Akku, aber auch kabelgebunden, ich verwende die "PS
 
 | Werkzeug | Kurze Erläuterung | Bild |
 | - | - | -  |
-| Kombizange | Ein Allrounder-Werkzeug, immer nützlich | ![Kombizange](kombizange.jpg) <br> Bild von |
+| Kombizange | Ein Allrounder-Werkzeug, immer nützlich | ![Kombizange](kombizange.jpg) |
 | Meterstab | Sobald das 30cm lineal zu kurz ist zwingend notwendig zum vermessen. | ![Meterstab](meterstab.jpg) |
 | Lineal | 30cm lang, handlicher als Meterstab, zum Präzisen abmessen. | ![Lineal](lineal.jpg) |
 | Spitzer bleistift | Zum Anzeichnen von Linien, entlang welcher man sägen will oder markieren, wo ein Loch gebohrt werden soll. | ![Bleistift](bleistift.jpg)  |
@@ -88,3 +88,5 @@ Ich persönlich vertrete die Meinung wer billig kauft, kauft zweimal, sowohl Akk
 
 Zu guter letzt will ich auch die Option von öffentlichen Werkstätten, wie an der Universität Ulm das [Student-Lab](https://wiki.fs-et.de/student-lab/StartSeite) oder das [Temporärhaus](https://temporaerhaus.de/make/) hinweisen.
 Selbst war ich leider noch in keiner der Werkstätte, aber dort solltet ihr alles finden, was ihr benötigt und gleichzeitig sind dort erfahrene Menschen, welche euch bei fragen und Problemen Tipps gegen und ggf. sogar unterstützen können.
+
+## How-To Sägen
