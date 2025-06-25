@@ -72,7 +72,8 @@ export const theme: ThemeUserConfig = {
       // Privacy Policy link
       {
         title: 'Site Policy',
-        link: '/terms/list',
+        /*link: '/terms/list',*/
+        link: 'https://argimlas.de/datenschutz.html',
         pos: 2 // position set to 2 will be appended to copyright line
       }
     ],
@@ -146,8 +147,8 @@ export const integ: IntegrationUserConfig = {
     // Refer https://waline.js.org/en/reference/client/props.html
     additionalConfigs: {
       // search: false,
-      pageview: true,
-      comment: true,
+      pageview: false,
+      comment: false,
       locale: {
         reaction0: 'Like',
         placeholder: 'Welcome to comment. (Email to receive replies. Login is unnecessary)'
@@ -163,18 +164,6 @@ export const terms: CardListData = {
     {
       title: 'Privacy Policy',
       link: '/terms/privacy-policy'
-    },
-    {
-      title: 'Terms and Conditions',
-      link: '/terms/terms-and-conditions'
-    },
-    {
-      title: 'Copyright',
-      link: '/terms/copyright'
-    },
-    {
-      title: 'Disclaimer',
-      link: '/terms/disclaimer'
     }
   ]
 }
