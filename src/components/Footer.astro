@@ -1,6 +1,47 @@
-<footer>
-    <a href="LINK">Github</a>
-    <a href="LINK">Contact</a>
-    <a href="LINK">Datenschutzerklärung</a>
-    <a href="LINK">Impressum</a>
+---
+import { Github, Rss, Mail } from "lucide-astro";
+const year = new Date().getFullYear();
+---
+
+<footer
+    class="flex
+       bg-background
+       border-t
+       border-text/10
+       px-4 py-2
+       justify-between
+       items-center"
+>
+    <div
+        class="flex
+            items-center
+            gap-4
+            text-xs
+            text-text/60"
+    >
+        <span>
+            &copy; {year}
+            <a href="https://argimlas.de">Argimlas</a>
+        </span>
+        <nav class="flex
+                gap-4">
+            <a href="https://argimlas.de/datenschutz.html">Privacy Policy</a>
+            <a href="https://argimlas.de/impressum.html">Impressum</a>
+        </nav>
+    </div>
+
+    <nav
+        class="flex
+                    items-center
+                    gap-4
+                    text-xs
+                    text-text/60"
+    >
+        <a href="mailto:info@argimlas.de"><Mail size={16} /></a>
+        <a href="https://github.com/Argimlas/blog.argimlas.de"
+            ><Github size={16} /></a
+        >
+
+        <a href="LINK"><Rss size={16} /></a>
+    </nav>
 </footer>
