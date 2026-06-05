@@ -4,13 +4,14 @@ const year = new Date().getFullYear();
 ---
 
 <footer
-    class="flex
+    class="flex flex-col md:flex-row
        bg-background
        border-t
        border-text/10
        px-4 py-2
        justify-between
-       items-center"
+       items-center
+       gap-y-2"
 >
     <div
         class="flex
@@ -41,7 +42,6 @@ const year = new Date().getFullYear();
         <a href="https://github.com/Argimlas/blog.argimlas.de"
             ><Github size={16} /></a
         >
-
         <a href="LINK"><Rss size={16} /></a>
     </nav>
 </footer>
