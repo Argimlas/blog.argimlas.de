@@ -2,9 +2,48 @@
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<header>
-    <a href="/Blog"><img src="/favicon.svg" alt="Logo" /></a>
+<header
+    class="fixed
+           top-0 left-0 right-0
+           flex
+           justify-between
+           bg-background
+           border-b
+           border-text/10
+           px-4 py-2
+           items-center"
+    id="header"
+>
+    <a href="/"><img src="/favicon.svg" alt="Logo" width="24" height="24" /></a>
 
-    <a href="/About">About</a>
-    <ThemeToggle />
+    <nav class="flex
+                items-center
+                gap-4">
+        <a href="/About">About</a>
+        <ThemeToggle />
+    </nav>
 </header>
+
+<style>
+    #header {
+        transition: transform 0.5s ease;
+    }
+    .header-hidden {
+        transform: translateY(-100%);
+    }
+</style>
+
+<script>
+    let lastScrollPos = 0;
+    window.addEventListener("scroll", () => {
+        const currentScrollPos = window.scrollY;
+        if (currentScrollPos - lastScrollPos > 0) {
+            document.getElementById("header")!.classList.add("header-hidden");
+        } else if (currentScrollPos - lastScrollPos < 0) {
+            document
+                .getElementById("header")!
+                .classList.remove("header-hidden");
+        }
+        lastScrollPos = currentScrollPos;
+    });
+</script>
