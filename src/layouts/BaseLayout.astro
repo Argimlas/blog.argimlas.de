@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -9,9 +10,36 @@ import Footer from "../components/Footer.astro";
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+            rel="stylesheet"
+        />
+
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>Astro</title>
+
+        <script is:inline>
+            //script to load dark/light mode befor render to counter aganist anti-flash
+            const theme = localStorage.getItem("theme"); //"dark", "light", null
+            if (theme == "dark") {
+                document.documentElement.setAttribute("data-theme", "dark");
+            } else if (theme == "light") {
+                document.documentElement.setAttribute("data-theme", "light");
+            } else {
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                } else {
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        "light",
+                    );
+                }
+            }
+        </script>
     </head>
 
     <body>

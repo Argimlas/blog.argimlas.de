@@ -1,0 +1,54 @@
+---
+import { Sun, Moon, Monitor } from "lucide-astro";
+---
+
+<button class="" type="button">
+    <Sun id="icon-light" />
+    <Moon id="icon-dark" />
+    <Monitor id="icon-system" />
+</button>
+
+<script>
+    type Theme = "light" | "dark" | null;
+    type State = "light" | "dark" | "system";
+
+    const theme = localStorage.getItem("theme") as Theme;
+    setTheme(theme);
+
+    document.querySelector("button")?.addEventListener("click", () => {
+        const theme = localStorage.getItem("theme") as Theme;
+        const newTheme = cycleTheme(theme);
+        setTheme(newTheme);
+        if (newTheme === null) {
+            localStorage.removeItem("theme");
+        } else {
+            localStorage.setItem("theme", newTheme);
+        }
+    });
+
+    function setTheme(theme: Theme) {
+        if (theme == null) {
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+            }
+            setIcon("system");
+        } else {
+            document.documentElement.setAttribute("data-theme", theme);
+            setIcon(theme);
+        }
+    }
+    function cycleTheme(theme: Theme): Theme {
+        const states: Theme[] = ["light", "dark", null];
+        const idx = states.indexOf(theme);
+        return states[(idx + 1) % states.length];
+    }
+
+    function setIcon(state: State) {
+        document.getElementById("icon-light")!.style.display = "none";
+        document.getElementById("icon-dark")!.style.display = "none";
+        document.getElementById("icon-system")!.style.display = "none";
+        document.getElementById("icon-" + state)!.style.display = "block";
+    }
+</script>
