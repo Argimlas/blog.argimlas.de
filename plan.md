@@ -185,7 +185,7 @@ featureImage: "./image.jpg"  # optional
   6. **PostCard** - `PostCard.astro`: feature image or longer description, title, tags, reading time + date, series badge; equal-size grid card, 4-8px radius
      - [x] Card with linked title, rendered in `index.astro` list (props: whole `CollectionEntry<"blog">`)
      - [x] Plain fields: description, date (formatted), tags, series badge (conditional)
-     - [ ] Reading time: computed from `post.body`, in a helper shared with the post page
+     - [x] Reading time: computed from `post.body`, in a helper shared with the post page
      - [ ] Feature image: schema `featureImage` -> `image()`, test image next to a test post, `<Image />` or description fallback
      - [ ] Layout: grid on the list in `index.astro`, card fills its cell
   7. **Landing page** - hero (logo + about text), 3-col responsive post grid; no filters/search yet (milestone 7)

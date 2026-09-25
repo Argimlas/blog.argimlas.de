@@ -1,10 +1,15 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { readingTime } from "../utils/readingTime.ts";
 
+//Importing Blog Data
 interface Props {
     post: CollectionEntry<"blog">;
 }
+
 const { post } = Astro.props;
+
+//Date conversion
 const date = post.data.date;
 const labeledDate = date.toLocaleDateString("en-GB", {
     day: "numeric",
@@ -12,6 +17,11 @@ const labeledDate = date.toLocaleDateString("en-GB", {
     year: "numeric",
 });
 const isoDate = date.toISOString().slice(0, 10);
+
+//Reading time
+const minutes = readingTime(post.body ?? "");
+const readingTimeLabel = minutes < 1 ? "< 1 min" : Math.ceil(minutes) + " min";
+//    condition ?   if true    :     if false
 ---
 
 <article>
@@ -20,6 +30,7 @@ const isoDate = date.toISOString().slice(0, 10);
     </a>
     <p>{post.data.description}</p>
     <time datetime={isoDate}>{labeledDate}</time>
+    <p>{readingTimeLabel}</p>
     <ul>
         {post.data.tags.map((tag) => (
             <li>{tag}</li>
