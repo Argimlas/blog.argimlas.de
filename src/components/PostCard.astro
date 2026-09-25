@@ -5,8 +5,29 @@ interface Props {
     post: CollectionEntry<"blog">;
 }
 const { post } = Astro.props;
+const date = post.data.date;
+const labeledDate = date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+});
+const isoDate = date.toISOString().slice(0, 10);
 ---
 
-<a href={`/${post.id}/`}>
-    <h2>{post.data.title}</h2>
-</a>
+<article>
+    <a href={`/${post.id}/`}>
+        <h2>{post.data.title}</h2>
+    </a>
+    <p>{post.data.description}</p>
+    <time datetime={isoDate}>{labeledDate}</time>
+    <ul>
+        {post.data.tags.map((tag) => (
+            <li>{tag}</li>
+        ))}
+    </ul>
+    {post.data.series && (
+        <p>
+            <span class="series">{post.data.series}</span>
+        </p>
+    )}
+</article>

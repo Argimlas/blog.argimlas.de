@@ -184,7 +184,7 @@ featureImage: "./image.jpg"  # optional
   5. [x] **Footer** - links layout (contact, Impressum/Datenschutz to subdomain, GitHub/RSS); responsive stack on mobile
   6. **PostCard** - `PostCard.astro`: feature image or longer description, title, tags, reading time + date, series badge; equal-size grid card, 4-8px radius
      - [x] Card with linked title, rendered in `index.astro` list (props: whole `CollectionEntry<"blog">`)
-     - [ ] Plain fields: description, date (formatted), tags, series badge (conditional)
+     - [x] Plain fields: description, date (formatted), tags, series badge (conditional)
      - [ ] Reading time: computed from `post.body`, in a helper shared with the post page
      - [ ] Feature image: schema `featureImage` -> `image()`, test image next to a test post, `<Image />` or description fallback
      - [ ] Layout: grid on the list in `index.astro`, card fills its cell
