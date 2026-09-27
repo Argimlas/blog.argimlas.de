@@ -16,6 +16,8 @@ Small choices made during implementation that aren't obvious from the spec.
 - **Reading time (2026-09-23):** Computed from the post body, not a frontmatter field.
 - **Feature image (2026-09-23):** Switch schema from `z.string()` to the `image()` helper for Astro image optimization; images live under `src/`, not `public/`.
 - **Post grid breakpoints (2026-09-27):** 1 column on mobile, 2 from `md` (768px), 3 from `lg` (1024px) - three columns are too cramped on tablet.
+- **Content width (2026-09-27):** Max width + side padding live on `<main>` in `BaseLayout` (`max-w-6xl mx-auto px-4`), so every page shares them; header and footer stay full-width.
+- **Landing hero (2026-09-27):** Plan said logo + about text. Now: portrait of me (favicon as placeholder until the photo exists), big title (the page's `<h1>`), about text, and an "About me" link styled as a button.
 
 ---
 
@@ -189,7 +191,7 @@ featureImage: "./image.jpg"  # optional
      - [x] Reading time: computed from `post.body`, in a helper shared with the post page
      - [x] Feature image: schema `featureImage` -> `image()`, test image next to a test post, `<Image />` or description fallback
      - [x] Layout: grid on the list in `index.astro`, card fills its cell
-  7. **Landing page** - hero (logo + about text), 3-col responsive post grid; no filters/search yet (milestone 7)
+  7. [x] **Landing page** - hero (logo + about text), 3-col responsive post grid; no filters/search yet (milestone 7)
   8. **Post page** - feature image, metadata (date/time/tags), title, description, content area; no ToC or series navigator yet (milestone 7)
   9. **Code blocks** - configure Shiki in `astro.config.mjs` with dual themes (light + dark) synced to `data-theme`
 - [ ] **5. Content** - write one or two real posts, verify Markdown/MDX rendering, series + tags working
