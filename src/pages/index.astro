@@ -8,7 +8,7 @@ const posts = await getCollection("blog");
 
 <BaseLayout>
     <h1>Astro</h1>
-    <ul>
+    <ul class="grid gap-4 auto-rows-fr md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
             <li>
                 <PostCard post={post} />

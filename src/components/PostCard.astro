@@ -25,25 +25,25 @@ const readingTimeLabel = minutes < 1 ? "< 1 min" : Math.ceil(minutes) + " min";
 //    condition ?   if true    :     if false
 ---
 
-<article>
+<article class="h-full border border-text/10 rounded-md p-3">
+    {post.data.featureImage ? (
+        <Image src={post.data.featureImage} alt="" />
+    ) : (
+        <p>{post.data.description}</p>
+    )}
     <a href={`/${post.id}/`}>
         <h2>{post.data.title}</h2>
     </a>
-    <time datetime={isoDate}>{labeledDate}</time>
-    <p>{readingTimeLabel}</p>
     <ul>
         {post.data.tags.map((tag) => (
             <li>{tag}</li>
         ))}
     </ul>
+    <p>{readingTimeLabel}</p>
+    <time datetime={isoDate}>{labeledDate}</time>
     {post.data.series && (
         <p>
             <span class="series">{post.data.series}</span>
         </p>
-    )}
-    {post.data.featureImage ? (
-        <Image src={post.data.featureImage} alt="" />
-    ) : (
-        <p>{post.data.description}</p>
     )}
 </article>

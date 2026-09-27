@@ -15,6 +15,7 @@ Small choices made during implementation that aren't obvious from the spec.
 - **PostCard props (2026-09-23):** Card takes the whole collection entry (`post: CollectionEntry<"blog">`), not flattened fields - type stays generated from the schema, and `post.id` is available for the link.
 - **Reading time (2026-09-23):** Computed from the post body, not a frontmatter field.
 - **Feature image (2026-09-23):** Switch schema from `z.string()` to the `image()` helper for Astro image optimization; images live under `src/`, not `public/`.
+- **Post grid breakpoints (2026-09-27):** 1 column on mobile, 2 from `md` (768px), 3 from `lg` (1024px) - three columns are too cramped on tablet.
 
 ---
 
@@ -182,12 +183,12 @@ featureImage: "./image.jpg"  # optional
   3. [x] **Dark mode toggle** - `ThemeToggle.astro`: three states (light/dark/system); reads/writes `localStorage`; sets `data-theme` on `<html>`; inline script in `<head>` prevents flash
   4. [x] **Header** - logo left, nav + toggle right; scroll-hide on all screen sizes
   5. [x] **Footer** - links layout (contact, Impressum/Datenschutz to subdomain, GitHub/RSS); responsive stack on mobile
-  6. **PostCard** - `PostCard.astro`: feature image or longer description, title, tags, reading time + date, series badge; equal-size grid card, 4-8px radius
+  6. [x] **PostCard** - `PostCard.astro`: feature image or longer description, title, tags, reading time + date, series badge; equal-size grid card, 4-8px radius
      - [x] Card with linked title, rendered in `index.astro` list (props: whole `CollectionEntry<"blog">`)
      - [x] Plain fields: description, date (formatted), tags, series badge (conditional)
      - [x] Reading time: computed from `post.body`, in a helper shared with the post page
      - [x] Feature image: schema `featureImage` -> `image()`, test image next to a test post, `<Image />` or description fallback
-     - [ ] Layout: grid on the list in `index.astro`, card fills its cell
+     - [x] Layout: grid on the list in `index.astro`, card fills its cell
   7. **Landing page** - hero (logo + about text), 3-col responsive post grid; no filters/search yet (milestone 7)
   8. **Post page** - feature image, metadata (date/time/tags), title, description, content area; no ToC or series navigator yet (milestone 7)
   9. **Code blocks** - configure Shiki in `astro.config.mjs` with dual themes (light + dark) synced to `data-theme`
