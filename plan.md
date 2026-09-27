@@ -186,14 +186,14 @@ featureImage: "./image.jpg"  # optional
      - [x] Card with linked title, rendered in `index.astro` list (props: whole `CollectionEntry<"blog">`)
      - [x] Plain fields: description, date (formatted), tags, series badge (conditional)
      - [x] Reading time: computed from `post.body`, in a helper shared with the post page
-     - [ ] Feature image: schema `featureImage` -> `image()`, test image next to a test post, `<Image />` or description fallback
+     - [x] Feature image: schema `featureImage` -> `image()`, test image next to a test post, `<Image />` or description fallback
      - [ ] Layout: grid on the list in `index.astro`, card fills its cell
   7. **Landing page** - hero (logo + about text), 3-col responsive post grid; no filters/search yet (milestone 7)
   8. **Post page** - feature image, metadata (date/time/tags), title, description, content area; no ToC or series navigator yet (milestone 7)
   9. **Code blocks** - configure Shiki in `astro.config.mjs` with dual themes (light + dark) synced to `data-theme`
 - [ ] **5. Content** - write one or two real posts, verify Markdown/MDX rendering, series + tags working
 - [ ] **6. Deploy pipeline** - GitHub Actions + rsync over SSH to Manitu, test push-to-publish workflow
-- [ ] **7. Polish** - RSS feed, responsive fixes, ToC, series navigator, search, performance
+- [ ] **7. Polish** - RSS feed, responsive fixes, ToC, series navigator, search, performance, more accurate reading time (ignore Markdown syntax and code blocks in `readingTime.ts`)
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { readingTime } from "../utils/readingTime.ts";
+import { Image } from "astro:assets";
 
 //Importing Blog Data
 interface Props {
@@ -28,7 +29,6 @@ const readingTimeLabel = minutes < 1 ? "< 1 min" : Math.ceil(minutes) + " min";
     <a href={`/${post.id}/`}>
         <h2>{post.data.title}</h2>
     </a>
-    <p>{post.data.description}</p>
     <time datetime={isoDate}>{labeledDate}</time>
     <p>{readingTimeLabel}</p>
     <ul>
@@ -40,5 +40,10 @@ const readingTimeLabel = minutes < 1 ? "< 1 min" : Math.ceil(minutes) + " min";
         <p>
             <span class="series">{post.data.series}</span>
         </p>
+    )}
+    {post.data.featureImage ? (
+        <Image src={post.data.featureImage} alt="" />
+    ) : (
+        <p>{post.data.description}</p>
     )}
 </article>
