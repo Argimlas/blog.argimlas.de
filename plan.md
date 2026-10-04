@@ -92,6 +92,8 @@ Layout top to bottom:
 #### Sorting
 - By date - newest first / oldest first
 - By reading time - shortest first / longest first
+- More criteria possible (open: which ones)
+- UI of the sort controls still to be discussed
 
 #### Search
 - Text search across posts
@@ -199,9 +201,12 @@ featureImage: "./image.jpg"  # optional
   7. [x] **Landing page** - hero (logo + about text), 3-col responsive post grid; no filters/search yet (milestone 7)
   8. [x] **Post page** - feature image, metadata (date/time/tags), title, description, content area; no ToC or series navigator yet (milestone 7)
   9. **Code blocks** - configure Shiki in `astro.config.mjs` with dual themes (light + dark) synced to `data-theme`
-- [ ] **5. Content** - write one or two real posts, verify Markdown/MDX rendering, series + tags working
+  10. **Visual polish** - tag pills (accent), styled meta row (date/reading time), series badge, card look (padding, hover, consistent height), hero; on both landing and post page, before writing more posts
+- [x] **5. Content** - write one or two real posts, verify Markdown/MDX rendering, series + tags working
+  - Done: `desk` + `tools` imported from the old blog (series "Holzbau", parts 1-2), Markdown rendering incl. tables and images verified
+  - Still open: no `.mdx` post yet (verify with the first one); series + tags only exist as data so far - check them once the series navigator and tag filter are built (milestone 7)
 - [ ] **6. Deploy pipeline** - GitHub Actions + rsync over SSH to Manitu, test push-to-publish workflow
-- [ ] **7. Polish** - RSS feed, responsive fixes, ToC, series navigator, search, performance, more accurate reading time (ignore Markdown syntax and code blocks in `readingTime.ts`)
+- [ ] **7. Polish** - RSS feed, responsive fixes, ToC, series navigator, search, tag filtering + sorting on the landing page (see Features; sort UI to be discussed first), performance, more accurate reading time (ignore Markdown syntax and code blocks in `readingTime.ts`)
 
 ---
 
