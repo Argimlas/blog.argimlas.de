@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { readingTime } from "../utils/readingTime.ts";
+import { readingTime, formatReadingTimeLabel } from "../utils/readingTime.ts";
+import { formatLabeledDate, formatIsoDate } from "../utils/formatDate.ts";
 import { Image } from "astro:assets";
 
 //Importing Blog Data
@@ -10,19 +11,14 @@ interface Props {
 
 const { post } = Astro.props;
 
-//Date conversion
+//Date
 const date = post.data.date;
-const labeledDate = date.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-});
-const isoDate = date.toISOString().slice(0, 10);
+const labeledDate = formatLabeledDate(date);
+const isoDate = formatIsoDate(date);
 
 //Reading time
 const minutes = readingTime(post.body ?? "");
-const readingTimeLabel = minutes < 1 ? "< 1 min" : Math.ceil(minutes) + " min";
-//    condition ?   if true    :     if false
+const readingTimeLabel = formatReadingTimeLabel(minutes);
 ---
 
 <article class="h-full border border-text/10 rounded-md p-3">

@@ -4,3 +4,7 @@ export function readingTime(text: string): number {
 
   return words.length / wordsPerMinute;
 }
+
+export function formatReadingTimeLabel(minutes: number): string {
+  return minutes < 1 ? "< 1 min" : Math.ceil(minutes) + " min";
+}//        condition ?  if true  :     if false
