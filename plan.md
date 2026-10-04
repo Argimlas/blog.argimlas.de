@@ -18,6 +18,11 @@ Small choices made during implementation that aren't obvious from the spec.
 - **Post grid breakpoints (2026-09-27):** 1 column on mobile, 2 from `md` (768px), 3 from `lg` (1024px) - three columns are too cramped on tablet.
 - **Content width (2026-09-27):** Max width + side padding live on `<main>` in `BaseLayout` (`max-w-6xl mx-auto px-4`), so every page shares them; header and footer stay full-width.
 - **Landing hero (2026-09-27):** Plan said logo + about text. Now: portrait of me (favicon as placeholder until the photo exists), big title (the page's `<h1>`), about text, and an "About me" link styled as a button.
+- **Format helpers (2026-10-04):** Date and reading-time display formatting live in `src/utils/` (`formatDate.ts`, `readingTime.ts`) and are shared by `PostCard` and the post page, so both always show the same output.
+- **Page title (2026-10-04):** `BaseLayout` takes a required `title` prop for `<title>`; a page without one fails the type check.
+- **Post column (2026-10-04):** Post page is a narrow centered column (`max-w-3xl`) for readable line length; the ToC gets room later (milestone 7).
+- **Post content styles (2026-10-04):** Own CSS in `global.css` (`@layer base`, `.post-content` descendant selectors with `@apply`) instead of `@tailwindcss/typography` - full control over the personality details, no dependency. Tables: horizontal lines only, sideways scroll on narrow screens.
+- **Posts in folders (2026-10-04):** A post can be `src/content/<name>/index.md` with its images next to it; the id (and URL) is the folder name.
 
 ---
 
@@ -192,7 +197,7 @@ featureImage: "./image.jpg"  # optional
      - [x] Feature image: schema `featureImage` -> `image()`, test image next to a test post, `<Image />` or description fallback
      - [x] Layout: grid on the list in `index.astro`, card fills its cell
   7. [x] **Landing page** - hero (logo + about text), 3-col responsive post grid; no filters/search yet (milestone 7)
-  8. **Post page** - feature image, metadata (date/time/tags), title, description, content area; no ToC or series navigator yet (milestone 7)
+  8. [x] **Post page** - feature image, metadata (date/time/tags), title, description, content area; no ToC or series navigator yet (milestone 7)
   9. **Code blocks** - configure Shiki in `astro.config.mjs` with dual themes (light + dark) synced to `data-theme`
 - [ ] **5. Content** - write one or two real posts, verify Markdown/MDX rendering, series + tags working
 - [ ] **6. Deploy pipeline** - GitHub Actions + rsync over SSH to Manitu, test push-to-publish workflow
@@ -206,3 +211,4 @@ featureImage: "./image.jpg"  # optional
 - [x] Create GitHub repo
 - [ ] Create dedicated SSH user on Manitu for GitHub Actions (needed before milestone 6)
 - [ ] Confirm Manitu document root path for rsync target
+- [ ] *(optional)* Per-post language: `language` frontmatter field sets `<html lang>` via a `BaseLayout` prop - only needed if posts stay in German instead of being translated to English

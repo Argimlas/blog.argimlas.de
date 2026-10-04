@@ -1,6 +1,9 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { readingTime, formatReadingTimeLabel } from "../utils/readingTime.ts";
+import { formatLabeledDate, formatIsoDate } from "../utils/formatDate.ts";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
     const blog = await getCollection("blog");
@@ -9,8 +12,44 @@ export async function getStaticPaths() {
     });
 }
 const { post } = Astro.props;
+
+const { Content } = await render(post);
+
+//Date
+const date = post.data.date;
+const labeledDate = formatLabeledDate(date);
+const isoDate = formatIsoDate(date);
+
+//Reading time
+const minutes = readingTime(post.body ?? "");
+const readingTimeLabel = formatReadingTimeLabel(minutes);
 ---
 
-<BaseLayout>
-    <h1>{post.data.title}</h1>
+<BaseLayout title={post.data.title}>
+    <article class="max-w-3xl mx-auto">
+        <header>
+            {post.data.featureImage && (
+                <Image
+                    src={post.data.featureImage}
+                    alt="Hero Image"
+                    class="mb-1"
+                />
+            )}
+            <div class="flex flex-wrap gap-2 mb-3">
+                <p>{readingTimeLabel}</p>
+                <time datetime={isoDate}>{labeledDate}</time>
+                <ul class="flex flex-wrap gap-2">
+                    {post.data.tags.map((tag) => (
+                        <li>{tag}</li>
+                    ))}
+                </ul>
+            </div>
+            <h1 class="text-3xl font-bold mb-3">{post.data.title}</h1>
+            <p class="mb-3">{post.data.description}</p>
+        </header>
+
+        <div class="post-content">
+            <Content />
+        </div>
+    </article>
 </BaseLayout>

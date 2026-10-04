@@ -28,4 +28,44 @@
     h6 {
         font-family: var(--font-heading);
     }
+    .post-content h2 {
+        @apply text-2xl font-bold mt-6 mb-2;
+    }
+    .post-content h3 {
+        @apply text-xl font-bold mt-6 mb-2;
+    }
+    .post-content p {
+        @apply mb-3;
+    }
+    .post-content ul {
+        @apply mb-3 list-disc  pl-6;
+    }
+    .post-content ol {
+        @apply mb-3 list-decimal  pl-6;
+    }
+    .post-content a {
+        @apply text-accent underline;
+    }
+    .post-content blockquote {
+        @apply border-l-4 border-accent pl-4 italic mb-3;
+    }
+    .post-content code {
+        @apply font-mono bg-text/10 px-1 rounded;
+    }
+    .post-content hr {
+        @apply my-3 border-text/20;
+    }
+    .post-content table {
+        @apply block overflow-x-auto mb-3;
+    }
+    .post-content th,
+    .post-content td {
+        @apply border-b  border-text/20 px-2 py-1;
+    }
+    .post-content tr:last-child td {
+        @apply border-b-0;
+    }
+    .post-content th {
+        @apply text-center;
+    }
 }
